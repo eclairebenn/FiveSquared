@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30002.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiveSquared", "FiveSquared\FiveSquared.csproj", "{050BFBA1-E979-47EE-90AF-478BE4BC81CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiveSquared.Test", "FiveSquared.Test\FiveSquared.Test.csproj", "{4A564CF0-433E-4D83-9401-6D6FDE455C21}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{050BFBA1-E979-47EE-90AF-478BE4BC81CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{050BFBA1-E979-47EE-90AF-478BE4BC81CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{050BFBA1-E979-47EE-90AF-478BE4BC81CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{050BFBA1-E979-47EE-90AF-478BE4BC81CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A564CF0-433E-4D83-9401-6D6FDE455C21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A564CF0-433E-4D83-9401-6D6FDE455C21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A564CF0-433E-4D83-9401-6D6FDE455C21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A564CF0-433E-4D83-9401-6D6FDE455C21}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E1DA2230-9D1B-4E92-B8B5-2FC4235B0BA7}
+	EndGlobalSection
+EndGlobal
