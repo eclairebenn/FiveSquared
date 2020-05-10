@@ -351,7 +351,8 @@ namespace FiveSquared
             List<List<PuzzlePiece>> resultsThree = Combo.GeneratePermutations<PuzzlePiece>(threePieces);
             List<List<PuzzlePiece>> resultsTwo = Combo.GeneratePermutations<PuzzlePiece>(twoPieces);
 
-
+            Console.WriteLine($"Testing pattern #{patternCount}");
+            
             foreach(List<PuzzlePiece> twoPiece in resultsTwo)
             {
                 List<List<PuzzlePiece>> twoMirrorPieces = generateMirrorPermuations(twoPiece);
