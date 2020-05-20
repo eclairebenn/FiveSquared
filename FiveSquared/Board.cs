@@ -107,9 +107,27 @@ namespace FiveSquared
             }
         }
 
-        public void PrintPattern(List<Slot> pattern) 
-        {   
-            PrintMatrix(PatternToGrid(pattern)); 
+        public void PrintColorMatrix(Color[,] colors) 
+        {
+            Console.WriteLine();
+            for (int i = 0; i < colors.GetLength(0); i++) 
+            {               
+                for (int j = 0; j < colors.GetLength(1); j++) 
+                {
+                    Console.Write("a" + "\t", colors[i, j]);
+                }
+                Console.WriteLine();
+            }
+        }
+
+        public void PrintColorPattern(List<Slot> pattern)
+        {
+            PrintColorMatrix(PatternToColorGrid(pattern));
+        }
+        
+        public void PrintNumberPattern(List<Slot> pattern)
+        {
+            PrintMatrix(PatternToNumberGrid(pattern));
         }
         
         public bool CheckGridValidity()
@@ -144,6 +162,8 @@ namespace FiveSquared
 
             return true;
         }
+
+        
 
         public bool CheckPatternValidity(List<Slot> pattern)
         {
@@ -286,8 +306,7 @@ namespace FiveSquared
             }
             return true; 
         }
-
-        public int[,] PatternToGrid(List<Slot> pattern) 
+        public int[,] PatternToNumberGrid(List<Slot> pattern) 
         {
             int[,] PatternGrid = new int[5, 5];
             foreach (Slot s in pattern)
@@ -326,6 +345,58 @@ namespace FiveSquared
                 } 
             } 
             return PatternGrid; 
+        }
+
+                public Color[,] PatternToColorGrid(List<Slot> pattern) 
+        {   
+            Color[] ColorOptions = new Color[] {
+                Color.Red, 
+                Color.DarkMagenta, 
+                Color.Yellow, 
+                Color.Green, 
+                Color.Cyan, 
+                Color.DarkRed, 
+                Color.DarkBlue, 
+                Color.White, 
+                Color.Gray
+            };
+            Color[,] ColorGrid = new Color[5, 5];
+            foreach (Slot s in pattern)
+            {
+                Point Start = s.StartPosition;
+                Point End = s.EndPosition;
+                Color Color = ColorOptions[pattern.IndexOf(s)];
+                if (Start.X == End.X) 
+                {
+                    if (Start.Y > End.Y) 
+                    {
+                        for (int i = End.Y; i <= Start.Y; i++) 
+                        {
+                            ColorGrid[Start.X, i] = Color;                       
+                        }
+                    } else {
+                        for (int i = Start.Y; i <= End.Y; i++) 
+                        {
+                            ColorGrid[Start.X, i] = Color;                       
+                        }
+                    }
+                } else 
+                {
+                    if (Start.X > End.X) {
+                        for (int i = End.X; i <= Start.X; i++) 
+                        {
+                            ColorGrid[i, Start.Y] = Color;
+                        }
+                    } else 
+                    {
+                        for (int i = Start.X; i <= End.X; i++) 
+                        {
+                            ColorGrid[i, Start.Y] = Color;
+                        }
+                    }
+                } 
+            } 
+            return ColorGrid; 
         }
 
         public void PlacePiece(Slot slot, PuzzlePiece piece)
@@ -378,14 +449,13 @@ namespace FiveSquared
                                 Console.WriteLine("-----------------------------------------------------------");
                                 Console.WriteLine("Valid Solution for Pattern #" + patternCount);
                                 PrintMatrix(Grid);
-                                PrintPattern(pattern);
+                                PrintNumberPattern(pattern);
                             } 
                         }     
                     }    
                 } 
             }
         }
-
 
         public List<List<Slot>> InitializePatterns()
         {
